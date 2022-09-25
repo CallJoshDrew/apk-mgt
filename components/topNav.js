@@ -10,7 +10,8 @@ import Bossku from "../public/bossku.jpg"
 export default function topNav({pageTitle}) {
   return (
     <React.Fragment>
-      <Box sx={{ padding: "20px 5px 15px", boxShadow: "0.1px 1px white" }}>
+      <Box sx={{ padding: "20px 5px 15px"}}>
+        {/* boxShadow: "0.1px 1px white" temporary disable */}
         <Grid container justifyContent="space-between" alignItems="center" padding="0 20px">
           <Link href="/dashboard" underline="none" aria-label="back to dashboard page"><ArrowCircleLeftIcon fontSize='large'sx={{color: "white"}}/></Link>
           <Grid item ><Typography variant="h7" color="white" align="left">{pageTitle}</Typography></Grid>

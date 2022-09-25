@@ -15,6 +15,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Link from "@mui/material/Link";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import Details from "./details";
 
 export default function Profile() {
   const pageTitle = "My Profile";
@@ -73,7 +74,7 @@ export default function Profile() {
           borderColor: "yellow",
           margin: "10px 20px",
         }}
-      >
+      ><Link href="/rating" underline="none" aria-label="My Current Rating" color="white">
         <Grid
           container
           direction="column"
@@ -99,6 +100,7 @@ export default function Profile() {
             </Grid>
           </Grid>
         </Grid>
+        </Link>
       </Box>
       <Box sx={{ margin: "10px 20px" }}>
         <Box align="center" padding="10px">
@@ -116,6 +118,7 @@ export default function Profile() {
           </Link>
         </Box>
       </Box>
+      <Details />
       {/* special marginbottom = 10 (Box) to avoid the fixed bottom nav */}
       <Box sx={{ margin: "10px 20px", marginBottom: 10, padding:"20px 10px", backgroundColor: '#0288d1', borderRadius:"15px"}} align="center">
         <Typography variant="h6" gutterBottom>Evaluation Form Setting</Typography>

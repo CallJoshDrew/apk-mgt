@@ -47,6 +47,24 @@ const theme = createTheme({
         },
       },
     },
+    // Inputs of TextField Border, Color, BgColor
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          "& .MuiOutlinedInput-notchedOutline": {
+            border: `2px solid white`,
+            borderRadius: '10px',
+            // backgroundColor: "white",
+          },
+          "&.Mui-focused": {
+            "& .MuiOutlinedInput-notchedOutline": {
+              border: `2px solid white`,
+              borderRadius: '10px',
+            },
+          },
+        },
+      },
+    },
   },
 });
 

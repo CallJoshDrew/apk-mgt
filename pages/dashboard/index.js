@@ -40,9 +40,9 @@ export default function Dashboard() {
       <FinanceCard />
       <Grid container paddingLeft="30px">
         <Grid item xs={4}><Typography variant="h6">All Projects</Typography></Grid>
-          <Fab size="small" color="primary" aria-label="add">
-            <AddIcon />
-          </Fab>
+          <Link href="/addNewProject"><Fab sx={{ height: '1rem', minHeight:'2rem', width: '2rem' }} color="primary" aria-label="add">
+            <AddIcon sx={{ fontSize: "1rem" }} />
+          </Fab></Link>
       </Grid>
       <Box sx={{ width: '100%', typography: 'body1' }}>
         

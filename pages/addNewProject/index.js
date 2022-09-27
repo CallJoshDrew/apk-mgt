@@ -37,6 +37,7 @@ export default function NewProject() {
   const [task1Progress, setTask1Progress] = useState("");
 
   const handleSave = (e) => {
+    e.preventDefault();
     console.log(
       projectName,
       picName,
@@ -91,9 +92,9 @@ export default function NewProject() {
     },
   ];
   return (
-    <Container marginBottom="60px">
+    <Container >
       <TopNav pageTitle={pageTitle} />
-      <Box >
+      <Box  marginBottom="30px">
         <form noValidate autoComplete="off" onSubmit={handleSave}>
           <Grid
             container
@@ -190,13 +191,15 @@ export default function NewProject() {
             <Grid item xs={5} align="center">
               <Typography variant="h7">PIC to assign</Typography>
             </Grid>
-            <Grid item xs={7} align="center"><Button
-              variant="contained"
-              startIcon={<LibraryAddIcon />}
-              sx={{ borderRadius: "15px" }}
-            >
-              Add New Phase
-            </Button></Grid>
+            <Grid item xs={7} align="center">
+              <Button
+                variant="contained"
+                startIcon={<LibraryAddIcon />}
+                sx={{ borderRadius: "15px" }}
+              >
+                Add New Phase
+              </Button>
+            </Grid>
           </Grid>
           <Box
             sx={{
@@ -230,6 +233,7 @@ export default function NewProject() {
                 />
               </Grid>
             </Grid>
+            {/* Task 1 Container */}
             <Box
               sx={{
                 border: 1,
@@ -246,7 +250,7 @@ export default function NewProject() {
                     size="small"
                     variant="contained"
                     sx={{
-                      paddingTop: "8px",
+                      paddingTop: "6px",
                       marginRight: "10px",
                       fontSize: "0.6rem",
                       borderRadius: "20px",
@@ -284,6 +288,8 @@ export default function NewProject() {
                 <Grid item xs={4}>
                   <Fab
                     sx={{
+                      marginLeft:"-5px",
+                      marginTop: "-3px",
                       height: "1.5rem",
                       minHeight: "1.5rem",
                       width: "1.5rem",
@@ -393,6 +399,30 @@ export default function NewProject() {
               </Grid>
             </Box>
           </Box>
+          {/* Save Button */}
+          <Grid container spacing={2}>
+            <Grid item xs={6} align="right">
+              <Button
+                type="submit"
+                variant="contained"
+                
+                sx={{ padding: "5px 10px", width:"70%" }}
+              >
+                Save
+              </Button>
+            </Grid>
+            {/* Back Button */}
+            <Grid item xs={6} align="left">
+              <Button
+                href="/dashboard"
+                aria-label="Back to My Profile Page"
+                variant="contained"
+                sx={{ padding: "5px 10px", width:"70%" }}
+              >
+                Back
+              </Button>
+            </Grid>
+          </Grid>
         </form>
       </Box>
     </Container>

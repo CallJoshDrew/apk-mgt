@@ -52,13 +52,13 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           "& .MuiOutlinedInput-notchedOutline": {
-            border: `2px solid white`,
+            border: `1.5px solid white`,
             borderRadius: '10px',
             // backgroundColor: "white",
           },
           "&.Mui-focused": {
             "& .MuiOutlinedInput-notchedOutline": {
-              border: `2px solid white`,
+              border: `1.5px solid white`,
               borderRadius: '10px',
             },
           },

@@ -23,7 +23,7 @@ import TabPanel from '@mui/lab/TabPanel';
 import Ongoing from '../../components/ongoing'
 import Completed from '../../components/completed'
 import Unappointed from '../../components/unappointed'
-import Terminated from '../../components/Terminated'
+import Terminated from '../../components/terminated'
 
 export default function Dashboard() {
   const page = "dashboard"

@@ -7,18 +7,22 @@ import Button from "@mui/material/Button";
 import Slider from '@mui/material/Slider';
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 
-const marks = [
+const timeLineStatus = [
   {
     value: 0,
-    label: 'Aug 01 22',
+    label: '0%',
   },
   {
-    value: 37,
-    label: '37%',
+    value: 40,
+    label: '40%',
+  },
+  {
+    value: 60,
+    label: '60%',
   },
   {
     value: 100,
-    label: 'Feb 01 23',
+    label: '100%',
   },
 ];
 function valuetext(value) {
@@ -26,7 +30,7 @@ function valuetext(value) {
 }
 
 export default function Ongoing() {
-  
+  const [value, setValue] = React.useState([40, 60]);
   return (
     <React.Fragment>
       <Grid container>
@@ -36,12 +40,13 @@ export default function Ongoing() {
             <Grid container padding="10px 15px" spacing={1}>
               <Grid item xs={10}><Typography variant="h6">Construction ABC</Typography></Grid>
               <Grid item xs={1}><SentimentVeryDissatisfiedIcon fontSize="large" color="error"/></Grid>
-              <Grid item xs={12}><Button variant="contained" color="error">PIC Partner ABC</Button></Grid>
+              <Grid item xs={12}><Button variant="contained" color="error">PIC Simeon</Button></Grid>
               <Grid item xs={12}>
-                <Box padding="30px">
-                <Slider aria-label="Custom marks" defaultValue={37} getAriaValueText={valuetext} step={10}
-                        valueLabelDisplay="auto" marks={marks} disabled color="secondary"/>
+                <Box padding="20px">
+                <Slider getAriaLabel={() => 'Minimum distance shift'} value={value} getAriaValueText={valuetext} step={10}
+                        valueLabelDisplay="auto" marks={timeLineStatus} disabled />
                 </Box>
+                <Typography align="center" gutterBottom color="red">30 Days Delayed</Typography>
               </Grid>
               <Grid item xs={12}><Button variant="contained" color="error" fullWidth>RM 1,000</Button></Grid>
            </Grid>

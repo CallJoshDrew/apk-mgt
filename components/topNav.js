@@ -7,7 +7,7 @@ import Grid from "@mui/material/Grid";
 import Avatar from '@mui/material/Avatar';
 import Bossku from "../public/bossku.jpg"
 
-export default function topNav({pageTitle}) {
+export default function TopNav({pageTitle}) {
   return (
     <React.Fragment>
       <Box sx={{ padding: "20px 5px 15px"}}>

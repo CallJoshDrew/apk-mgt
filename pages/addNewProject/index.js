@@ -20,7 +20,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { useRouter } from "next/router";
 import Phase from "../../components/phase";
 
-export default function NewProject() {
+export default function AddNewProject() {
   const pageTitle = "Add New Project";
 
   const [projectName, setProjectName] = useState("New Project");
@@ -266,5 +266,3 @@ export default function NewProject() {
     </Container>
   );
 }
-
-9;

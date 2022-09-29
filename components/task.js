@@ -13,13 +13,37 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import NewTask from "./newTask";
 
+
+import MenuItem from "@mui/material/MenuItem";
+
 export default function Task() {
   const [task1Begin, setTask1Begin] = useState(null);
   const [task1Completed, setTask1Completed] = useState(null);
   const [task1Progress, setTask1Progress] = useState("");
   const [addStaff, setAddStaff] = useState([]);
   const [addTask, setAddTask] = useState([]);
-
+  const [status, setStatus] = useState("Ongoing");
+  
+  const handleStatus = (event) => {
+    setStatus(event.target.value);
+  };
+  const statusNow = [
+    {
+      value: "Unappointed",
+    },
+    {
+      value: "Haven't Start",
+    },
+    {
+      value: "Ongoing",
+    },
+    {
+      value: "Completed",
+    },
+    {
+      value: "Terminated",
+    },
+  ];
   const [count, setCount] = useState(2);
   const [taskCount, setTaskCount] = useState(2);
   const addNewStaff = (event, index) => {
@@ -208,6 +232,26 @@ export default function Task() {
               disableUnderline={true}
               onInput={(e) => setTask1Progress(e.target.value)}
             />
+          </Grid>
+          <Grid item xs={6}>
+            <Typography color="black">Status</Typography>
+          </Grid>
+          <Grid item xs={6}>
+            <TextField
+              select
+              variant="outlined"
+              label="Status"
+              value={status}
+              onChange={handleStatus}
+              fullWidth
+              focused
+            >
+              {statusNow.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.value}
+                </MenuItem>
+              ))}
+            </TextField>
           </Grid>
 
           {addStaff}

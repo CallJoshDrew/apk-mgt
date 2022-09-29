@@ -22,7 +22,7 @@ function valuetext(value) {
   return `${value}%`;
 }
 
-export default function Ongoing() {
+export default function Completed() {
   
   return (
     <React.Fragment>
@@ -33,12 +33,13 @@ export default function Ongoing() {
             <Grid container padding="10px 15px" spacing={1}>
               <Grid item xs={10}><Typography variant="h6">Construction EDF</Typography></Grid>
              
-              <Grid item xs={12}><Button variant="contained" color="success"><Typography color="white">PIC Partner EDF</Typography></Button></Grid>
+              <Grid item xs={12}><Button variant="contained" color="success"><Typography color="white">PIC Sapphira</Typography></Button></Grid>
               <Grid item xs={12}>
                 <Box padding="30px">
                 <Slider aria-label="Custom marks" defaultValue={99} getAriaValueText={valuetext} step={10}
                         valueLabelDisplay="auto" marks={marks} disabled color="secondary"/>
                 </Box>
+                <Typography align="center" gutterBottom color="white">0 Day(s) Delayed</Typography>
               </Grid>
               <Grid item xs={12}><Button variant="contained" color="success" fullWidth><Typography color="white">RM 5,000</Typography></Button></Grid>
            </Grid>

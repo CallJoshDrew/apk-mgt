@@ -61,11 +61,11 @@ export default function Dashboard() {
             <Tab label="Unappointed" value="5" />
           </TabList>
         </Box>
-        <TabPanel value="1"><Ongoing /></TabPanel>
-        <TabPanel value="2"><HavenStart /></TabPanel>
-        <TabPanel value="3"><Completed /></TabPanel>
-        <TabPanel value="4"><Terminated /></TabPanel>
-        <TabPanel value="5"><Unappointed /></TabPanel>
+        <TabPanel value="1"><Link href="/project/ongoing" underline="none" color="white"><Ongoing /></Link></TabPanel>
+        <TabPanel value="2"><Link href="/project/haveNotStart" underline="none" color="white"><HavenStart /></Link></TabPanel>
+        <TabPanel value="3"><Link href="/project/completed" underline="none" color="white"><Completed /></Link></TabPanel>
+        <TabPanel value="4"><Link href="/project/terminated" underline="none" color="white"><Terminated /></Link></TabPanel>
+        <TabPanel value="5"><Link href="/project/unappointed" underline="none" color="white"><Unappointed /></Link></TabPanel>
       </TabContext>
       </Box>
 

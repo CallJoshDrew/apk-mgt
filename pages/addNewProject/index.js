@@ -13,10 +13,12 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { Container, Grid, Input } from "@mui/material";
+import { Alert, Container, Grid, Input, Snackbar } from "@mui/material";
 
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
+import { useRouter } from "next/router";
+import Phase from "../../components/phase";
 
 export default function NewProject() {
   const pageTitle = "Add New Project";
@@ -28,32 +30,25 @@ export default function NewProject() {
   const [projectEnd, setProjectEnd] = useState(null);
   const [status, setStatus] = useState("");
 
-  const [phase1, setPhase1] = useState("");
-  const [task1, setTask1] = useState("");
-  const [task1Staff1, setTask1Staff1] = useState("");
-  const [task1Staff1Bonus, setTask1Staff1Bonus] = useState("");
-  const [task1Begin, setTask1Begin] = useState(null);
-  const [task1Completed, setTask1Completed] = useState(null);
-  const [task1Progress, setTask1Progress] = useState("");
+  
 
+  const router = useRouter()
   const handleSave = (e) => {
     e.preventDefault();
-    console.log(
-      projectName,
-      picName,
-      bonus,
-      projectBegin,
-      projectEnd,
-      status,
-      phase1,
-      task1,
-      task1Staff1,
-      task1Staff1Bonus,
-      task1Begin,
-      task1Completed,
-      task1Progress
-    );
+    handleClick();
+    setTimeout(() => router.push('/notification'), 3000);
   };
+
+  const [open, setOpen] = useState(false);
+  const vertical = "bottom";
+  const horizontal = "center";
+  const handleClick = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   const handlePIC = (event) => {
     setPicName(event.target.value);
   };
@@ -91,6 +86,35 @@ export default function NewProject() {
       value: "Sapphira",
     },
   ];
+
+  const [count, setCount] = useState(2);
+  const [phaseNew, setPhaseNew] = useState([]);
+  const [removePhase, setRemovePhase] = useState([]);
+  const addNewPhase = (event, index) => {
+   
+    // console.log(`phaseNew.length : ${phaseNew.length}`);
+    // if phaseNew.length -1 === index && phaseNew.length < 4 && (
+
+    // )
+    setCount(count+1)
+    phaseNew && phaseNew.length < 4 && (
+      setPhaseNew(phaseNew.concat(<Phase key={phaseNew.length} phase={count}/>))
+    )
+    // setRemovePhase(removePhase.concat(<Button variant="contained" key={phaseNew.length}><Typography>Remove</Typography></Button>))
+  };
+
+  const handleRemove = (index) => {
+    // console.log(`index : ${index}`);
+    const list = [...phaseNew];
+    list.splice(index, 1);
+    // console.log(`count : ${count}`);
+    // setCount(count-1)
+    // const list =  [...phaseNew];
+    // list.splice(count, 1);
+    // console.log(`count : ${count}`);
+    setPhaseNew(list);
+    
+  };
   return (
     <Container >
       <TopNav pageTitle={pageTitle} />
@@ -187,218 +211,22 @@ export default function NewProject() {
               </TextField>
             </Grid>
           </Grid>
-          <Grid container alignItems="center" marginTop="15px">
-            <Grid item xs={5} align="center">
-              <Typography variant="h7">PIC to assign</Typography>
-            </Grid>
-            <Grid item xs={7} align="center">
+          <Phase />
+          {phaseNew}
+          <Box onClick={handleRemove} key={phaseNew.length}>{removePhase}</Box>
+          <Grid container alignItems="center" margin="5px 0 15px">
+            <Grid item xs={12} align="right">
               <Button
                 variant="contained"
                 startIcon={<LibraryAddIcon />}
-                sx={{ borderRadius: "15px" }}
+                sx={{ borderRadius: "5px" }}
+                fullWidth
+                onClick={(e) => addNewPhase()}
               >
                 Add New Phase
               </Button>
             </Grid>
           </Grid>
-          <Box
-            sx={{
-              // border: 1,
-              // // borderColor: "white",
-              // backgroundColor: "#333333",
-              borderRadius: "15px",
-              padding: "15px 0px",
-            }}
-          >
-            <Grid container alignItems="center">
-              <Grid item xs={4} paddingLeft="5px">
-                <Button
-                  variant="contained"
-                  sx={{
-                    borderRadius: "20px",
-                    backgroundColor: "white",
-                    color: "black",
-                    fontWeight: "700",
-                  }}
-                >
-                  Phase 1
-                </Button>
-              </Grid>
-              <Grid item xs={8}>
-                <Input
-                  placeholder="Title"
-                  aria-label="Task 1 Title"
-                  disableUnderline={true}
-                  onInput={(e) => setPhase1(e.target.value)}
-                />
-              </Grid>
-            </Grid>
-            {/* Task 1 Container */}
-            <Box
-              sx={{
-                border: 1,
-                borderColor: "white",
-                backgroundColor: "white",
-                borderRadius: "15px",
-                marginTop: "15px",
-                padding: "10px 20px",
-              }}
-            >
-              <Grid container alignItems="center" spacing={1.5}>
-                <Grid item xs={6}>
-                  <Button
-                    size="small"
-                    variant="contained"
-                    sx={{
-                      paddingTop: "6px",
-                      marginRight: "10px",
-                      fontSize: "0.6rem",
-                      borderRadius: "20px",
-                      backgroundColor: "black",
-                      color: "white",
-                      fontWeight: "700",
-                    }}
-                  >
-                    Task 1
-                  </Button>
-                  <Fab
-                    sx={{
-                      height: "1.5rem",
-                      minHeight: "1.5rem",
-                      width: "1.5rem",
-                    }}
-                    color="primary"
-                    aria-label="add"
-                  >
-                    <AddIcon sx={{ fontSize: "1rem" }} />
-                  </Fab>
-                </Grid>
-                <Grid item xs={6}>
-                  <Input
-                    placeholder="Description"
-                    aria-label="Task 1 Description"
-                    sx={{ color: "black" }}
-                    disableUnderline={true}
-                    onInput={(e) => setTask1(e.target.value)}
-                  />
-                </Grid>
-                <Grid item xs={2}>
-                  <Typography color="black">Staff</Typography>
-                </Grid>
-                <Grid item xs={4}>
-                  <Fab
-                    sx={{
-                      marginLeft:"-5px",
-                      marginTop: "-3px",
-                      height: "1.5rem",
-                      minHeight: "1.5rem",
-                      width: "1.5rem",
-                    }}
-                    color="primary"
-                    aria-label="add"
-                  >
-                    <AddIcon sx={{ fontSize: "1rem" }} />
-                  </Fab>
-                </Grid>
-                <Grid item xs={6}>
-                  <Input
-                    placeholder="Staff"
-                    aria-label="Staff"
-                    sx={{ color: "black" }}
-                    disableUnderline={true}
-                    onInput={(e) => setTask1Staff1(e.target.value)}
-                  />
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography color="black">Bonus (RM)</Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <Input
-                    placeholder="Set The Bonus"
-                    type="number"
-                    aria-label="Bonus"
-                    sx={{ color: "black" }}
-                    disableUnderline={true}
-                    onInput={(e) => setTask1Staff1Bonus(e.target.value)}
-                  />
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography color="black">Begin</Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker
-                      // label="Month/Day/Year"
-                      value={task1Begin}
-                      onChange={(newValue) => {
-                        setTask1Begin(newValue);
-                      }}
-                      renderInput={(params) => (
-                        <TextField
-                          variant="outlined"
-                          placeholder="Enter Date"
-                          sx={{
-                            input: {
-                              color: "black",
-                              border: 1,
-                              borderColor: "black",
-                            },
-                            svg: { color: "black" },
-                          }}
-                          {...params}
-                        />
-                      )}
-                      fullWidth
-                      focused
-                    />
-                  </LocalizationProvider>
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography color="black">Completion</Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker
-                      value={task1Completed}
-                      onChange={(newValue) => {
-                        setTask1Completed(newValue);
-                      }}
-                      renderInput={(params) => (
-                        <TextField
-                          variant="outlined"
-                          placeholder="Enter Date"
-                          sx={{
-                            input: {
-                              color: "black",
-                              border: 1,
-                              borderColor: "black",
-                            },
-                            svg: { color: "black" },
-                          }}
-                          {...params}
-                        />
-                      )}
-                      fullWidth
-                      focused
-                    />
-                  </LocalizationProvider>
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography color="black">% of Progress</Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <Input
-                    placeholder="%"
-                    type="number"
-                    aria-label="% of Progress"
-                    sx={{ color: "black" }}
-                    disableUnderline={true}
-                    onInput={(e) => setTask1Progress(e.target.value)}
-                  />
-                </Grid>
-              </Grid>
-            </Box>
-          </Box>
           {/* Save Button */}
           <Grid container spacing={2}>
             <Grid item xs={6} align="right">
@@ -425,6 +253,16 @@ export default function NewProject() {
           </Grid>
         </form>
       </Box>
+      <Snackbar
+        open={open}
+        autoHideDuration={3000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical, horizontal }}
+      >
+        <Alert onClose={handleClose} severity="info" sx={{ width: "100%" }}>
+          You have just created a New Project: {projectName}
+        </Alert>
+      </Snackbar>
     </Container>
   );
 }

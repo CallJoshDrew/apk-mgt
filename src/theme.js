@@ -53,13 +53,13 @@ const theme = createTheme({
         root: {
           "& .MuiOutlinedInput-notchedOutline": {
             border: `1.5px solid white`,
-            borderRadius: '10px',
+            borderRadius: '5px',
             // backgroundColor: "white",
           },
           "&.Mui-focused": {
             "& .MuiOutlinedInput-notchedOutline": {
               border: `1.5px solid white`,
-              borderRadius: '10px',
+              borderRadius: '5px',
             },
           },
         },

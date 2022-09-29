@@ -15,6 +15,7 @@ import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
 
 import Checkbox from "@mui/material/Checkbox";
+import { useRouter } from "next/router";
 
 function EditProfile() {
   const [name, setName] = useState("");
@@ -29,14 +30,17 @@ function EditProfile() {
   const [edu, setEDU] = useState("");
   const [employment, setEmployment] = useState("");
 
-  const handleSaveProfile = (e) => {
+  const router = useRouter()
+  const handleSaveProfile =  (e) => {
     e.preventDefault();
     console.log(name, ic, gender, dob, contact, email, address, bank, accName, edu, employment);
     handleClick();
+    setTimeout(() => router.push('/profile'), 3000);
   };
+  
 
   const [open, setOpen] = useState(false);
-  const vertical = "top";
+  const vertical = "bottom";
   const horizontal = "center";
   const handleClick = () => {
     setOpen(true);

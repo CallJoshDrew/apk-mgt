@@ -11,30 +11,20 @@ import Staff from "./staff";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import NewTask from "./newTask";
 
-export default function Task() {
+export default function NewTask(taskCount) {
+  const taskNumber = taskCount.count;
   const [task1Begin, setTask1Begin] = useState(null);
   const [task1Completed, setTask1Completed] = useState(null);
   const [task1Progress, setTask1Progress] = useState("");
   const [addStaff, setAddStaff] = useState([]);
-  const [addTask, setAddTask] = useState([]);
 
   const [count, setCount] = useState(2);
-  const [taskCount, setTaskCount] = useState(2);
   const addNewStaff = (event, index) => {
     addStaff &&
       addStaff.length < 4 &&
       setAddStaff(
-        addStaff.concat(<Staff key={addStaff.length} count={taskCount} />)
-      );
-    setTaskCount(taskCount + 1);
-  };
-  const addNewTask = (event, index) => {
-    addTask &&
-      addTask.length < 4 &&
-      setAddTask(
-        addTask.concat(<NewTask key={addTask.length} count={count} />)
+        addStaff.concat(<Staff key={addStaff.length} count={count} />)
       );
     setCount(count + 1);
   };
@@ -67,20 +57,8 @@ export default function Task() {
                 fontWeight: "700",
               }}
             >
-              Task 1
+              Task {taskNumber}
             </Button>
-            <Fab
-              onClick={addNewTask}
-              sx={{
-                height: "1.5rem",
-                minHeight: "1.5rem",
-                width: "1.5rem",
-              }}
-              color="primary"
-              aria-label="add"
-            >
-              <AddIcon sx={{ fontSize: "1rem" }} />
-            </Fab>
           </Grid>
           <Grid item xs={6}>
             <Input
@@ -213,7 +191,7 @@ export default function Task() {
           {addStaff}
         </Grid>
       </Box>
-      {addTask}
     </React.Fragment>
-  );
+  )
 }
+

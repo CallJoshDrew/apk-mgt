@@ -26,7 +26,7 @@ export default function Ongoing() {
   return (
     <React.Fragment>
       <Grid container>
-        <Grid item xs={12} align="left" paddingLeft="20px"><Typography gutterBottom>Haven't Start</Typography></Grid>
+        <Grid item xs={12} align="left" paddingLeft="20px"><Typography gutterBottom>Have&apos;t Start</Typography></Grid>
         <Grid item xs={12} align="left">
           <Box sx={{border: 2, borderRadius: "15px", borderColor: "#29b6f6",}}>
             <Grid container padding="10px 15px" spacing={1}>

@@ -11,6 +11,7 @@ import AddIcon from '@mui/icons-material/Add';
 
 import FinanceCard from "../../components/financeCard";
 import BottomNav from "../../components/bottomNav";
+import HavenStart from "../../components/havenStart";
 
 
 import Box from '@mui/material/Box';
@@ -20,6 +21,9 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 
 import Ongoing from '../../components/ongoing'
+import Completed from '../../components/completed'
+import Unappointed from '../../components/unappointed'
+import Terminated from '../../components/Terminated'
 
 export default function Dashboard() {
   const page = "dashboard"
@@ -49,7 +53,7 @@ export default function Dashboard() {
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <TabList onChange={handleChange} aria-label="lab API tabs example" variant="scrollable"
-  scrollButtons="auto" allowScrollButtonsMobile>
+            scrollButtons="auto" allowScrollButtonsMobile>
             <Tab label="Ongoing" value="1" />
             <Tab label="Haven't Start" value="2" />
             <Tab label="Completed" value="3" />
@@ -58,12 +62,12 @@ export default function Dashboard() {
           </TabList>
         </Box>
         <TabPanel value="1"><Ongoing /></TabPanel>
-        <TabPanel value="2">Haven&apos;t Start</TabPanel>
-        <TabPanel value="3">Completed</TabPanel>
-        <TabPanel value="4">Terminated</TabPanel>
-        <TabPanel value="5">Unappointed</TabPanel>
+        <TabPanel value="2"><HavenStart /></TabPanel>
+        <TabPanel value="3"><Completed /></TabPanel>
+        <TabPanel value="4"><Terminated /></TabPanel>
+        <TabPanel value="5"><Unappointed /></TabPanel>
       </TabContext>
-    </Box>
+      </Box>
 
       <BottomNav page={page}/>
     </Container>

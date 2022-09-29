@@ -13,13 +13,10 @@ const marks = [
     label: 'Aug 01 22',
   },
   {
-    value: 37,
-    label: '37%',
-  },
-  {
     value: 100,
-    label: 'Feb 01 23',
+    label: 'Oct 30 23',
   },
+  
 ];
 function valuetext(value) {
   return `${value}%`;
@@ -30,20 +27,20 @@ export default function Ongoing() {
   return (
     <React.Fragment>
       <Grid container>
-        <Grid item xs={12} align="left" paddingLeft="20px"><Typography gutterBottom>Ongoing</Typography></Grid>
+        <Grid item xs={12} align="left" paddingLeft="20px"><Typography gutterBottom>Unappointed</Typography></Grid>
         <Grid item xs={12} align="left">
-          <Box sx={{border: 2, borderRadius: "15px", borderColor: "#f44336",}}>
+          <Box sx={{border: 2, borderRadius: "15px", borderColor: "#29b6f6",}}>
             <Grid container padding="10px 15px" spacing={1}>
-              <Grid item xs={10}><Typography variant="h6">Construction ABC</Typography></Grid>
-              <Grid item xs={1}><SentimentVeryDissatisfiedIcon fontSize="large" color="error"/></Grid>
-              <Grid item xs={12}><Button variant="contained" color="error">PIC Partner ABC</Button></Grid>
+              <Grid item xs={10}><Typography variant="h6">Construction ZZZ</Typography></Grid>
+             
+              <Grid item xs={12}><Button variant="contained" color="info"><Typography color="white">PIC Partner Bossku</Typography></Button></Grid>
               <Grid item xs={12}>
                 <Box padding="30px">
-                <Slider aria-label="Custom marks" defaultValue={37} getAriaValueText={valuetext} step={10}
-                        valueLabelDisplay="auto" marks={marks} disabled color="secondary"/>
+                <Slider aria-label="Custom marks" defaultValue={0} getAriaValueText={valuetext} step={10}
+                        valueLabelDisplay="auto" marks={marks} disabled/>
                 </Box>
               </Grid>
-              <Grid item xs={12}><Button variant="contained" color="error" fullWidth>RM 1,000</Button></Grid>
+              <Grid item xs={12}><Button variant="contained" color="info" fullWidth><Typography color="white">RM 10,000</Typography></Button></Grid>
            </Grid>
           </Box></Grid>
         

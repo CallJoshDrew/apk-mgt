@@ -9,6 +9,12 @@ import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import BottomNav from "../components/bottomNav";
 
+
+import Tab from '@mui/material/Tab';
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
+
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -77,6 +83,12 @@ export default function FinanceYear() {
     currentFinance();
   };
 
+  const [value, setValue] = React.useState("1");
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   const yearDate = Date.now();
   const yearNow = new Intl.DateTimeFormat("en-US", {
     year: "numeric"
@@ -101,7 +113,7 @@ export default function FinanceYear() {
   };
 
   return (
-    <Box>
+    <Box marginBottom="60px">
       <TopNav pageTitle={pageTitle}/>
       <Box sx={{ paddingTop: "20px" }}>
         <form noValidate autoComplete="off" onSubmit={handleSaveExp}>
@@ -174,6 +186,109 @@ export default function FinanceYear() {
           </Snackbar>
         </form>
       </Box>
+      <Box sx={{ marginTop: "15px", typography: 'body1' }}>
+      <TabContext value={value}>
+        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <TabList onChange={handleChange} aria-label="lab API tabs example" variant="scrollable"
+            scrollButtons="auto" allowScrollButtonsMobile>
+            <Tab label="Unrealised" value="1" />
+            <Tab label="Realised" value="2" />
+          </TabList>
+        </Box>
+        <TabPanel value="1" sx={{padding: "10px 15px"}}>
+          <Box 
+            sx={{
+              width: '100%', 
+              typography: 'body1',
+              backgroundColor: "#333333",
+              borderRadius: "5px",
+              marginTop: "15px",
+              padding: "20px",
+            }}
+          >
+            <Grid container alignItems="center" spacing={1.5}>
+              <Grid item xs={10}>
+                <Button variant='contained' color="warning">
+                  <Typography color="white">Unrealised</Typography>
+                </Button>
+              </Grid>
+              <Grid item xs={2}><Typography color="white">RM</Typography></Grid>
+              <Grid item xs={12}>
+                  <Typography color="white">Construction ABC</Typography>
+              </Grid>
+              <Grid item xs={9}><Typography color="white">- PIC SIMEON</Typography></Grid>
+              <Grid item xs={3} align="center"><Typography color="white">1,000</Typography></Grid>
+              <Grid item xs={12}>
+                  <Typography color="white">Construction EDF</Typography>
+              </Grid>
+              <Grid item xs={9}><Typography color="white">- PIC Martha</Typography></Grid>
+              <Grid item xs={3} align="center"><Typography color="white">3,000</Typography></Grid>
+              <Grid item xs={12}>
+                  <Typography color="white">Construction EDF</Typography>
+              </Grid>
+              <Grid item xs={9}><Typography color="white">- PIC Sapphira</Typography></Grid>
+              <Grid item xs={3} align="center"><Typography color="white">5,000</Typography></Grid>
+              <Grid item xs={12}>
+                  <Typography color="white">Construction YYY</Typography>
+              </Grid>
+              <Grid item xs={9}><Typography color="white">- PIC Bossku</Typography></Grid>
+              <Grid item xs={3} align="center"><Typography color="white">2,000</Typography></Grid>
+              <Grid item xs={12}>
+                  <Typography color="white">Construction ZZZ</Typography>
+              </Grid>
+              <Grid item xs={9}><Typography color="white">- PIC Bossku</Typography></Grid>
+              <Grid item xs={3} align="center"><Typography color="white">10,000</Typography></Grid>
+              <Grid item xs={9} align='right'>
+                  <Typography color="white" fontWeight="700">Total</Typography>
+              </Grid>
+              <Grid item xs={3} align="center"><Typography color="white" fontWeight="700">21,000</Typography></Grid>
+            </Grid>
+          </Box>
+        </TabPanel>
+        <TabPanel value="2" sx={{padding: "10px 15px"}}>
+        <Box 
+            sx={{
+              width: '100%', 
+              typography: 'body1',
+              backgroundColor: "#333333",
+              borderRadius: "5px",
+              marginTop: "15px",
+              padding: "20px",
+            }}
+          >
+            <Grid container alignItems="center" spacing={1.5}>
+              <Grid item xs={10}>
+                <Button variant='contained' color="success">
+                  <Typography color="white">Realised</Typography>
+                </Button>
+              </Grid>
+              <Grid item xs={2}><Typography color="white">RM</Typography></Grid>
+              <Grid item xs={12}>
+                  <Typography color="white">Construction SSS</Typography>
+              </Grid>
+              <Grid item xs={9}><Typography color="white">- PIC SIMEON</Typography></Grid>
+              <Grid item xs={3} align="center"><Typography color="white">2,000</Typography></Grid>
+              <Grid item xs={12}>
+                  <Typography color="white">Construction HHH</Typography>
+              </Grid>
+              <Grid item xs={9}><Typography color="white">- PIC Martha</Typography></Grid>
+              <Grid item xs={3} align="center"><Typography color="white">1,000</Typography></Grid>
+              <Grid item xs={12}>
+                  <Typography color="white">Construction PDF</Typography>
+              </Grid>
+              <Grid item xs={9}><Typography color="white">- PIC Josiah</Typography></Grid>
+              <Grid item xs={3} align="center"><Typography color="white">1,000</Typography></Grid>
+              <Grid item xs={9} align='right'>
+                  <Typography color="white" fontWeight="700">Total</Typography>
+              </Grid>
+              <Grid item xs={3} align="center"><Typography color="white" fontWeight="700">4,000</Typography></Grid>
+            </Grid>
+          </Box>
+        </TabPanel>
+      </TabContext>
+      </Box>
+      
+      {/* Dialog & BottomNav */}
       <BottomNav />
       <Dialog
         open={dialog}
@@ -191,7 +306,7 @@ export default function FinanceYear() {
         </DialogContent>
         <DialogActions sx={{backgroundColor: "white"}}>
           <Button onClick={closeDialog}>Not now</Button>
-          <Button onClick={closeDialog} autoFocus>
+          <Button onClick={closeDialog} href="/realisedBook"autoFocus>
             Yes, proceed
           </Button>
         </DialogActions>

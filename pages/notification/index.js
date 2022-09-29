@@ -2,7 +2,7 @@ import React from "react";
 import TopNav from "../../components/topNav";
 
 import BottomNav from "../../components/bottomNav";
-import { Box, Grid, Paper, Typography } from "@mui/material";
+import { Box, Grid, Link, Paper, Typography } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
 import ClearIcon from "@mui/icons-material/Clear";
 import ReportProblemIcon from '@mui/icons-material/ReportProblem';
@@ -15,6 +15,7 @@ export default function Notification() {
     <React.Fragment>
       <TopNav pageTitle={pageTitle} />
       <Box padding="10px">
+        <Box align='right'><Typography>09/28/2022</Typography></Box>
         <Paper sx={{ backgroundColor: "#1E90FF", marginBottom: "10px" }}>
           <Grid
             container
@@ -27,14 +28,15 @@ export default function Notification() {
               <InfoIcon />
             </Grid>
             <Grid item xs={10}>
-              <Typography>New Project!</Typography>
+              <Link href="project/unappointed" underline="none" color="white"><Typography>New Project!</Typography>
               <Typography variant="h7">
-                You just created E&E Project!
-              </Typography>
+                You just created Construction ZZZ
+              </Typography></Link>
             </Grid>
           </Grid>
         </Paper>
-        <Paper sx={{ backgroundColor: "#f14235", marginBottom: "10px" }}>
+        <Box align='right'><Typography>09/27/2022</Typography></Box>
+        <Box sx={{ backgroundColor: "#f14235", marginBottom: "10px" }}>
           <Grid
             container
             justifyContent="center"
@@ -46,13 +48,14 @@ export default function Notification() {
               <ReportProblemIcon />
             </Grid>
             <Grid item xs={10}>
-              <Typography>Project Delayed</Typography>
+              <Link href="project/ongoing" underline="none" color="white"><Typography>Project Delayed</Typography>
               <Typography variant="h7">
-                E&E Project is currently behind the schedule!
-              </Typography>
+                Construction ABC is currently behind the schedule!
+              </Typography></Link>
             </Grid>
           </Grid>
-        </Paper>
+        </Box>
+        <Box align='right'><Typography>09/26/2022</Typography></Box>
         <Paper sx={{ backgroundColor: "#0FC432", marginBottom: "10px" }}>
           <Grid
             container
@@ -65,10 +68,10 @@ export default function Notification() {
               <TaskAltIcon />
             </Grid>
             <Grid item xs={10}>
-              <Typography>Project Completed</Typography>
+              <Link href="project/completed" underline="none" color="white"><Typography>Project Completed</Typography>
               <Typography variant="h7">
-                E&E Project has just completed!
-              </Typography>
+                Construction EDF has just completed!
+              </Typography></Link>
             </Grid>
           </Grid>
         </Paper>

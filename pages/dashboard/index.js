@@ -11,7 +11,7 @@ import AddIcon from '@mui/icons-material/Add';
 
 import FinanceCard from "../../components/financeCard";
 import BottomNav from "../../components/bottomNav";
-import HavenStart from "../../components/havenStart";
+import HavenStart from "../../components/haveNotStart";
 
 
 import Box from '@mui/material/Box';

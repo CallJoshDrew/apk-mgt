@@ -8,6 +8,8 @@ import MenuItem from "@mui/material/MenuItem";
 import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
 import TopNav from "../../components/topNav";
 
+import Rating from "@mui/material/Rating";
+
 import dayjs from "dayjs";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -18,6 +20,7 @@ import { Alert, Container, Grid, Input, Slider, Snackbar } from "@mui/material";
 import { useRouter } from "next/router";
 import Phase from "../../components/phase";
 
+import StarIcon from "@mui/icons-material/Star";
 export default function Completed() {
   const pageTitle = "Construction EDF";
 
@@ -134,6 +137,24 @@ export default function Completed() {
   const [task1Begin, setTask1Begin] = useState(null);
   const [task1Completed, setTask1Completed] = useState(null);
 
+  const labels = {
+    0.5: "Useless",
+    1: "Useless+",
+    1.5: "Poor",
+    2: "Poor+",
+    2.5: "Ok",
+    3: "Ok+",
+    3.5: "Good",
+    4: "Good+",
+    4.5: "Excellent",
+    5: "Excellent+",
+  };
+  function getLabelText(value) {
+    return `${value} Star${value !== 1 ? "s" : ""}, ${labels[value]}`;
+  }
+  const [rating, setRating] = React.useState(2);
+  const [hover, setHover] = React.useState(-1);
+
   return (
     <Container>
       <TopNav pageTitle={pageTitle} />
@@ -243,8 +264,8 @@ export default function Completed() {
               padding: "10px 40px",
               border: 1,
               borderRadius: "5px",
-              borderColor: "#333333",
-              backgroundColor: "#333333",
+              borderColor: "#0FC432",
+              backgroundColor: "#0FC432",
             }}
           >
             <Typography paddingTop="10px" align="center">
@@ -374,6 +395,133 @@ export default function Completed() {
             </Grid>
           </Box>
         </form>
+        <Box
+          sx={{
+            marginTop: "20px",
+            padding: "20px 15px",
+            border: 1,
+            borderRadius: "5px",
+            borderColor: "#333333",
+            backgroundColor: "#333333",
+          }}
+        >
+          <Grid container spacing={1}>
+            <Grid item xs={12}>
+              <Typography>Rating System</Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Button href="/rating" variant="contained" color="warning">
+                <Typography color="white">Current Rating</Typography>
+              </Button>
+            </Grid>
+          </Grid>
+          <Box
+            sx={{
+              paddingTop: "10px",
+            }}
+          >
+            <Grid
+              container
+              direction="column"
+              padding={{ xs: "10px", md: "20px" }}
+            >
+              <Grid item xs={12}>
+                <Typography variant="h6">Simone</Typography>
+              </Grid>
+              <Grid container justifyContent="center" alignItems="center">
+                <Grid item xs={6} align="left">
+                  <Rating
+                    name="hover-feedback"
+                    value={rating}
+                    precision={0.5}
+                    getLabelText={getLabelText}
+                    onChange={(event, newValue) => {
+                      setValue(newValue);
+                    }}
+                    onChangeActive={(event, newHover) => {
+                      setHover(newHover);
+                    }}
+                    emptyIcon={
+                      <StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />
+                    }
+                  />
+                </Grid>
+                <Grid item xs={6} align="right">
+                  <Typography variant="h4">{rating}</Typography>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid
+              container
+              direction="column"
+              padding={{ xs: "10px", md: "20px" }}
+            >
+              <Grid item xs={12}>
+                <Typography variant="h6">PIC Sapphira</Typography>
+              </Grid>
+              <Grid container justifyContent="center" alignItems="center">
+                <Grid item xs={6} align="left">
+                  <Rating
+                    name="hover-feedback"
+                    value={rating}
+                    precision={0.5}
+                    getLabelText={getLabelText}
+                    onChange={(event, newValue) => {
+                      setRating(newValue);
+                    }}
+                    onChangeActive={(event, newHover) => {
+                      setHover(newHover);
+                    }}
+                    emptyIcon={
+                      <StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />
+                    }
+                  />
+                </Grid>
+                <Grid item xs={6} align="right">
+                  <Typography variant="h4">{rating}</Typography>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid
+              container
+              direction="column"
+              padding={{ xs: "10px", md: "20px" }}
+            >
+              <Grid item xs={12}>
+                <Typography variant="h6">Principal</Typography>
+              </Grid>
+              <Grid container justifyContent="center" alignItems="center">
+                <Grid item xs={6} align="left">
+                  <Rating
+                    name="hover-feedback"
+                    value={rating}
+                    precision={0.5}
+                    getLabelText={getLabelText}
+                    onChange={(event, newValue) => {
+                      setRating(newValue);
+                    }}
+                    onChangeActive={(event, newHover) => {
+                      setHover(newHover);
+                    }}
+                    emptyIcon={
+                      <StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />
+                    }
+                  />
+                </Grid>
+                <Grid item xs={6} align="right">
+                  <Typography variant="h4">{rating}</Typography>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item xs={12} align='center' margin='10px 0 15px'>
+              <Typography color="white" gutterBottom>
+                To update this task, please rate before pressing the &apos;Finish&apos;
+                button below.
+              </Typography>
+            </Grid>
+            <Grid item xs={12} align='center'><Button href='/rating' variant='contained' color='success'><Typography color='white'>Finish</Typography></Button></Grid>
+          </Box>
+        </Box>
       </Box>
     </Container>
   );

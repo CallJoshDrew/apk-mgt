@@ -20,10 +20,9 @@ export default function MyRating() {
           margin: "30px 20px",
         }}
       >
-        <Grid
-          container
+        <Grid container
           direction="column"
-          padding={{ xs: "10px 25px", md: "20px" }}
+          padding="10px 25px"
         >
           <Grid item xs={12} align="left">
             <Typography variant="h6">My Current Rating</Typography>
@@ -87,7 +86,7 @@ export default function MyRating() {
         }}
         > <Grid container padding="20px">
             <Grid item xs={6} align="left"><Typography variant="h7">Construction ABC</Typography></Grid>
-            <Grid container xs={6}>
+            <Grid container>
               <Grid item xs={6} align="right"><Typography variant="h7">Phase 1</Typography></Grid>
               <Grid item xs={6} align="right"><Typography variant="h7">4.0</Typography></Grid>
               <Grid item xs={6} align="right"><Typography variant="h7">Phase 2</Typography></Grid>
@@ -100,7 +99,7 @@ export default function MyRating() {
           </Grid>
           <Grid container padding="20px">
             <Grid item xs={6} align="left"><Typography variant="h7">Construction ABC</Typography></Grid>
-            <Grid container xs={6}>
+            <Grid container >
               <Grid item xs={6} align="right"><Typography variant="h7">Phase 1</Typography></Grid>
               <Grid item xs={6} align="right"><Typography variant="h7">4.0</Typography></Grid>
               <Grid item xs={6} align="right"><Typography variant="h7">Phase 2</Typography></Grid>

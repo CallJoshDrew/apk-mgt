@@ -8,7 +8,7 @@ import Link from "@mui/material/Link";
 export default function FinanceCard() {
   return (
     <Container maxWidth="md" sx={{ margin:"15px 0",padding: "20px 10px"}}>
-      <Link href="/ceo/finance" underline="none" color="black">
+      <Link href="/admin/finance" underline="none" color="black">
       <Box sx={{paddingLeft:"10px", paddingBottom:"5px"}}>
         <Typography variant="h5" color="white">Year 2022</Typography>
       </Box>

@@ -12,11 +12,11 @@ export default function AlertDialog() {
   const handleClickOpen = () => {
     setOpen(true);
   };
-  
+
   const handleClose = () => {
     setOpen(false);
   };
-  
+
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>

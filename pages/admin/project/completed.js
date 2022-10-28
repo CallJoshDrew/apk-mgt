@@ -35,7 +35,7 @@ export default function Completed() {
   const handleSave = (e) => {
     e.preventDefault();
     handleClick();
-    setTimeout(() => router.push("/notification"), 3000);
+    setTimeout(() => router.push("/allNotification"), 2000);
   };
 
   const [open, setOpen] = useState(false);

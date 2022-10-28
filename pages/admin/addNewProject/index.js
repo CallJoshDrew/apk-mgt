@@ -36,7 +36,7 @@ export default function AddNewProject() {
   const handleSave = (e) => {
     e.preventDefault();
     handleClick();
-    setTimeout(() => router.push('/ceo/notification'), 2000);
+    setTimeout(() => router.push('/admin/allNotification'), 2000);
   };
 
   const [open, setOpen] = useState(false);
@@ -242,7 +242,7 @@ export default function AddNewProject() {
             {/* Back Button */}
             <Grid item xs={6} align="left">
               <Button
-                href="/ceo/dashboard"
+                href="/admin/dashboard"
                 aria-label="Back to My Profile Page"
                 variant="contained"
                 sx={{ padding: "5px 10px", width:"70%" }}

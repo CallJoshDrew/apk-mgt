@@ -31,7 +31,7 @@ export default function LabelBottomNavigation({page}) {
         label="Notification"
         value="notification"
         icon={<NotificationsIcon />}
-        href="/admin/AllNotification"  aria-hidden="false"
+        href="/admin/allNotification"  aria-hidden="false"
       />
       <BottomNavigationAction
         label="Profile"

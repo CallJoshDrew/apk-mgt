@@ -95,9 +95,9 @@ export default function Home() {
             <Button variant="contained" href="/admin/dashboard" fullWidth sx={{padding: "10px 20px"}}>
               Submit
             </Button>
-						<Typography variant="h7" component="div" align="center" sx={{color: "white"}}>
+						{/* <Typography variant="h7" component="div" align="center" sx={{color: "white"}}>
 							Forgot Password? <span><Link href="/password" underline="none" color="white">Click here</Link></span>
-						</Typography>
+						</Typography> */}
 						<Typography variant="h7" component="div" align="center" sx={{color: "white"}}>
 							By Continuing you agree to the Terms and Conditions
 						</Typography>

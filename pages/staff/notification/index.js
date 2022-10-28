@@ -28,7 +28,7 @@ export default function Notification() {
               <InfoIcon />
             </Grid>
             <Grid item xs={10}>
-              <Link href="/partner/project/unappointed" underline="none" color="white"><Typography>New Project!</Typography>
+              <Link href="/staff/project/unappointed" underline="none" color="white"><Typography>New Project!</Typography>
               <Typography variant="h7">
                 You just created Construction ZZZ
               </Typography></Link>
@@ -48,7 +48,7 @@ export default function Notification() {
               <ReportProblemIcon />
             </Grid>
             <Grid item xs={10}>
-              <Link href="/partner/project/ongoing" underline="none" color="white"><Typography>Project Delayed</Typography>
+              <Link href="/staff/project/ongoing" underline="none" color="white"><Typography>Project Delayed</Typography>
               <Typography variant="h7">
                 Construction ABC is currently behind the schedule!
               </Typography></Link>
@@ -68,7 +68,7 @@ export default function Notification() {
               <TaskAltIcon />
             </Grid>
             <Grid item xs={10}>
-              <Link href="/partner/project/completed" underline="none" color="white"><Typography>Project Completed</Typography>
+              <Link href="/staff/project/completed" underline="none" color="white"><Typography>Project Completed</Typography>
               <Typography variant="h7">
                 Construction EDF has just completed!
               </Typography></Link>

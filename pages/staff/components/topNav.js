@@ -5,7 +5,7 @@ import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Avatar from '@mui/material/Avatar';
-import Bossku from "../../../public/ismail.jpg"
+import Bossku from "../../../public/Ismail.jpg"
 
 export default function TopNav({pageTitle}) {
   return (

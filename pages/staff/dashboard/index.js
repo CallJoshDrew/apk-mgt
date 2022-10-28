@@ -8,7 +8,7 @@ import Link from "@mui/material/Link";
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 
-import Bossku from "../../../public/ismail.jpg"
+import Bossku from "../../../public/Ismail.jpg"
 import FinanceCard from "../components/financeCard";
 import BottomNav from "../components/bottomNav";
 

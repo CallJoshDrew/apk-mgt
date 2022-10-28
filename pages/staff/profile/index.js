@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import BottomNav from "../components/bottomNav";
 import TopNav from "../components/topNav";
 import Avatar from "@mui/material/Avatar";
-import Bossku from "../../../public/ismail.jpg";
+import Bossku from "../../../public/Ismail.jpg";
 import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import Grid from "@mui/material/Grid";

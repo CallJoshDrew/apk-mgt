@@ -3,8 +3,8 @@ import Grid from "@mui/material/Grid";
 import Rating from "@mui/material/Rating";
 import Box from "@mui/material/Box";
 import React from "react";
-import TopNav from "../../components/topNav";
-import BottomNav from "../../components/bottomNav";
+import TopNav from "../../../components/topNav";
+import BottomNav from "../../../components/bottomNav";
 
 export default function MyRating() {
   const pageTitle = "My Rating";

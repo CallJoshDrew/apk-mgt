@@ -74,7 +74,7 @@ export default function Profile() {
           borderColor: "yellow",
           margin: "10px 20px",
         }}
-      ><Link href="/rating" underline="none" aria-label="My Current Rating" color="white">
+      ><Link href="/profile/rating" underline="none" aria-label="My Current Rating" color="white">
         <Grid
           container
           direction="column"

@@ -28,10 +28,10 @@ export default function LabelBottomNavigation({page}) {
         href="/staff/dashboard" aria-hidden="false"
       />
       <BottomNavigationAction
-        label="Notifications"
-        value="notifications"
+        label="Notification"
+        value="notification"
         icon={<NotificationsIcon />}
-        href="/staff/notification"  aria-hidden="false"
+        href="/staff/allNotification"  aria-hidden="false"
       />
       <BottomNavigationAction
         label="Profile"
